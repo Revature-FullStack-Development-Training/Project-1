@@ -22,10 +22,10 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(nullable = false)
     private String title = "Employee";
@@ -36,13 +36,13 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String username, String password, String first_name,
-                String last_name, String title, List<Reimb> reimbs) {
+    public User(int userId, String username, String password, String firstName,
+                String lastName, String title, List<Reimb> reimbs) {
         this.userId = userId;
         this.username = username;
         this.password = password;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.title = title;
         this.reimbs = reimbs;
     }
@@ -71,20 +71,20 @@ public class User {
         this.password = password;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getTitle() {
@@ -109,8 +109,8 @@ public class User {
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", first_name='" + firstName + '\'' +
+                ", last_name='" + lastName + '\'' +
                 ", title='" + title + '\'' +
                 ", reimbs=" + reimbs +
                 '}';

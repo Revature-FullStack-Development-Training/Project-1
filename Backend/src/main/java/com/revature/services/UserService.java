@@ -27,10 +27,10 @@ public class UserService {
         else if (newUser.getPassword() == null || newUser.getPassword().isBlank()) {
             throw new IllegalArgumentException("Password can't be empty!");
         }
-        else if (newUser.getFirst_name() == null || newUser.getFirst_name().isBlank()) {
+        else if (newUser.getFirstName() == null || newUser.getFirstName().isBlank()) {
             throw new IllegalArgumentException("First name can't be empty!");
         }
-        else if (newUser.getLast_name() == null || newUser.getLast_name().isBlank()) {
+        else if (newUser.getLastName() == null || newUser.getLastName().isBlank()) {
             throw new IllegalArgumentException("Last name can't be empty!");
         }
         return uDAO.save(newUser);
@@ -42,7 +42,7 @@ public class UserService {
         List<OutUserDTO> outUsers = new ArrayList<OutUserDTO>();
 
         for(User u : users) {
-            outUsers.add(new OutUserDTO(u.getUserId(), u.getUsername(), u.getFirst_name(), u.getLast_name(), u.getTitle()));
+            outUsers.add(new OutUserDTO(u.getUserId(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getTitle()));
         }
 
         return outUsers;

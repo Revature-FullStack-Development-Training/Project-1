@@ -13,7 +13,7 @@ public class Reimb {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reimb_id;
+    private int reimbId;
 
     private String description;
 
@@ -32,21 +32,21 @@ public class Reimb {
     public Reimb() {
     }
 
-    public Reimb(int reimb_id, String description, double amount, String status,
+    public Reimb(int reimbId, String description, double amount, String status,
                  User user) {
-        this.reimb_id = reimb_id;
+        this.reimbId = reimbId;
         this.description = description;
         this.amount = amount;
         this.status = status;
         this.user = user;
     }
 
-    public int getReimb_id() {
-        return reimb_id;
+    public int getReimbId() {
+        return reimbId;
     }
 
-    public void setReimb_id(int reimb_id) {
-        this.reimb_id = reimb_id;
+    public void setReimbId(int reimbId) {
+        this.reimbId = reimbId;
     }
 
     public String getDescription() {
@@ -85,7 +85,7 @@ public class Reimb {
     @Override
     public String toString() {
         return "Reimb{" +
-                "reimb_id=" + reimb_id +
+                "reimbId=" + reimbId +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
                 ", status='" + status + '\'' +
