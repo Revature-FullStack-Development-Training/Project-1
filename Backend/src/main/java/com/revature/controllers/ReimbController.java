@@ -1,6 +1,8 @@
 package com.revature.controllers;
 
 import com.revature.models.Reimb;
+import com.revature.models.User;
+import com.revature.models.dtos.ReimbDTO;
 import com.revature.services.ReimbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +21,22 @@ public class ReimbController {
 
     @PostMapping
     public ResponseEntity<Reimb> createReimb(@RequestBody Reimb newReimb) {
+        if (newReimb.getUser() == null || newReimb.getUser().getUsername().isEmpty()) {
+            throw new IllegalArgumentException("User can't be empty!");
+        } else if (newReimb.getDescription() == null || newReimb.getDescription().isBlank()) {
+            throw new IllegalArgumentException("Description can't be empty!");
+        } else if (newReimb.getAmount() == 0) {
+            throw new IllegalArgumentException("Amount can't be 0!");
+        }
+
+        newReimb.setStatus("PENDING");
         Reimb r = reimbService.createReimb(newReimb);
         return ResponseEntity.status(201).body(r);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Reimb>> getAllReimbs() {
-        List<Reimb> allReimbs = reimbService.getAllReimbs();
+    public ResponseEntity<List<ReimbDTO>> getAllReimbs() {
+        List<ReimbDTO> allReimbs = reimbService.getAllReimbs();
         return ResponseEntity.ok(allReimbs);
     }
 

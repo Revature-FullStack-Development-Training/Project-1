@@ -2,7 +2,8 @@ package com.revature.services;
 
 import com.revature.daos.ReimbDAO;
 import com.revature.models.Reimb;
-import com.revature.models.User;
+import com.revature.models.dtos.OutUserDTO;
+import com.revature.models.dtos.ReimbDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +31,20 @@ public class ReimbService {
         }
         return rDAO.save(newReimb);
     }
+    private ReimbDTO convertToDTO(Reimb r) {
+        OutUserDTO outDTO = new OutUserDTO(r.getUser().getUserId(), r.getUser().getFirstName(), r.getUser().getLastName(), r.getUser().getUsername(), r.getUser().getTitle());
+
+        return new ReimbDTO(r.getReimbId(), r.getDescription(), r.getAmount(), r.getStatus(), outDTO);
+    }
 
     //This method gets all reimbursements
-    public List<Reimb> getAllReimbs() {
-        return rDAO.findAll();
+    public List<ReimbDTO> getAllReimbs() {
+        List<Reimb> allReimbs = rDAO.findAll();
+        List<ReimbDTO> allReimbDTOs = new ArrayList<ReimbDTO>();
+        for (Reimb r : allReimbs) {
+            allReimbDTOs.add(convertToDTO(r));
+        }
+        return allReimbDTOs;
     }
 
     //This method gets all reimbursements by userId
