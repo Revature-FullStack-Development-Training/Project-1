@@ -1,6 +1,6 @@
 package com.revature.models.dtos;
 
-public class ReimbDTO {
+public class OutReimbDTO {
 
     private int reimbId;
     private String description;
@@ -11,11 +11,11 @@ public class ReimbDTO {
 
     private OutUserDTO OutUserDTO;
 
-    public ReimbDTO() {
+    public OutReimbDTO() {
     }
 
-    public ReimbDTO(int reimbId, String description, double amount, String status,
-                    OutUserDTO OutUserDTO) {
+    public OutReimbDTO(int reimbId, String description, double amount, String status,
+                       OutUserDTO OutUserDTO) {
         this.reimbId = reimbId;
         this.description = description;
         this.amount = amount;
