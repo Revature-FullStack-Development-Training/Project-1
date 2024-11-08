@@ -27,13 +27,10 @@ public class ReimbService {
 
 
     public Reimb createReimb(InReimbDTO newReimb) {
-        System.out.println(newReimb);
 
         User user = uDAO.findById(newReimb.getUserId()).get();
 
         Reimb reimb = new Reimb(0, newReimb.getDescription(), newReimb.getAmount(), "Pending", user);
-
-        System.out.println();
 
        if (newReimb.getDescription() == null || newReimb.getDescription().isBlank()) {
             throw new IllegalArgumentException("Description can't be empty!");
