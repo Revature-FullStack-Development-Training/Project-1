@@ -25,7 +25,7 @@ public class Reimb {
     private String status = "PENDING";
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id_fk")
+    @JoinColumn(name = "userIdFk")
     @JsonIgnore
     private User user;
 

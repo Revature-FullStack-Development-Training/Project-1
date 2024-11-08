@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/reimbursements")
+@CrossOrigin
 public class ReimbController {
 
     @Autowired
