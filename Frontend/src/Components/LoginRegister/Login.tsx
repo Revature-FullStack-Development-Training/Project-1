@@ -11,6 +11,9 @@ export const Login:React.FC = () => {
         password:""
     })
 
+    const [unMsg, setUnMsg] = useState<string>("");
+    const [pwdMsg, setPwdMsg] = useState<string>("");
+
     const navigate = useNavigate();
 
     const storeValues = (input: any) => {
@@ -19,9 +22,34 @@ export const Login:React.FC = () => {
 
         setLoginCreds((loginCreds) => ({...loginCreds, [name]: value}))
     }
+
+    const validateFields = () => {
+        let isValid = true;
+    
+        if (loginCreds.username === "") {
+          setUnMsg("Username is required!");
+          isValid = false;
+        } else {
+          setUnMsg("");
+        }
+    
+        if (loginCreds.password === "") {
+          setPwdMsg("Password is required!");
+          isValid = false;
+        } else {
+          setPwdMsg("");
+        }
+    
+        return isValid;
+      };
  
     const login = async () => {
-        // TODO: we should make sure the username/password are inputed first
+
+        let isValid = validateFields();
+        
+        if (!isValid) {
+            return;
+        }
 
         // Use te username/password in the loginCreds state object
         const response = await axios.post(store.baseUrl + "/auth", loginCreds)
@@ -72,6 +100,7 @@ export const Login:React.FC = () => {
                         name="username"
                         onChange={storeValues}
                     />
+                    {unMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{unMsg}</li> : ""}
                 </div>
 
                 <div>
@@ -81,6 +110,7 @@ export const Login:React.FC = () => {
                         name="password"
                         onChange={storeValues}
                     />
+                    {pwdMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{pwdMsg}</li> : ""}
                 </div>
                 
 
