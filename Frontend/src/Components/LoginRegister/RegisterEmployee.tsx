@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { Button, Container, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { store } from "../../globalData/store"
 
 export const RegisterEmployee:React.FC = () => {
 
@@ -70,9 +71,16 @@ export const RegisterEmployee:React.FC = () => {
        
 
         // POST request - send the new user info to the backend
-        const response = await axios.post("http://localhost:5678/users", employee)
-        .then(() => {alert("Employee registration is successful!")})
+        const response = await axios.post(store.baseUrl + "/users", employee)
+        .then(
+          () => {
+            alert("Employee registration is successful!")
+            navigate("/")
+          }
+        )
         .catch((error) => {console.log("Employee registration failed! " + error.message)})
+
+
     }
 
     return(

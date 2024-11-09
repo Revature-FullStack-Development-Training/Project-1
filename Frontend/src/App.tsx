@@ -5,7 +5,8 @@ import { Login } from './Components/LoginRegister/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css' // We need this for Bootstrap to work
 import { CreateReimb } from './Components/Reimb/CreateReimb';
-import { RegisterEmployee } from './Components/LoginRegister/Register';
+import { RegisterEmployee } from './Components/LoginRegister/RegisterEmployee';
+import { Employees } from './Components/Employees/Employees';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path = "" element = {<Login/>}/>
           <Route path = "/register/employee" element = {<RegisterEmployee/>}/>
           <Route path = "/create/reimb" element = {<CreateReimb/>}/>
+          <Route path = "/employees" element = {<Employees/>}/>
         </Routes>
       </BrowserRouter>
     </div>
