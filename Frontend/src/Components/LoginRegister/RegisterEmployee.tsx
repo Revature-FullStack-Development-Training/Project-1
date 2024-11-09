@@ -78,7 +78,7 @@ export const RegisterEmployee:React.FC = () => {
             navigate("/")
           }
         )
-        .catch((error) => {console.log("Employee registration failed! " + error.message)})
+        .catch((error) => {alert("Employee registration failed!")})
 
 
     }

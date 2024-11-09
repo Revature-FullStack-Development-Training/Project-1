@@ -2,9 +2,9 @@ export const store: any = {
 
     loggedInUser: {
         userId: 0,
-        username: "",
         firstName: "",
         lastName: "",
+        username: "",
         title: ""
     },
 

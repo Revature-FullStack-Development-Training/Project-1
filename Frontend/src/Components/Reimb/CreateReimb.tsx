@@ -56,7 +56,7 @@ export const CreateReimb:React.FC = () => {
         // POST request - send the new user info to the backend
         const response = await axios.post(store.baseUrl + "/reimbs", reimb)
         .then(() => {alert("Reimbursement registration is successful!")})
-        .catch((error) => {console.log("Reimbursement registration failed! " + error.message)})
+        .catch((error) => {alert("Reimbursement registration failed!")})
     }
 
     return(
