@@ -24,29 +24,21 @@ public class ReimbService {
         this.rDAO = rDAO;
         this.uDAO = uDAO;
     }
-
-
     public Reimb createReimb(InReimbDTO newReimb) {
-
         User user = uDAO.findById(newReimb.getUserId()).get();
-
         Reimb reimb = new Reimb(0, newReimb.getDescription(), newReimb.getAmount(), "Pending", user);
-
        if (newReimb.getDescription() == null || newReimb.getDescription().isBlank()) {
             throw new IllegalArgumentException("Description can't be empty!");
         } else if (newReimb.getAmount() == 0) {
             throw new IllegalArgumentException("Amount can't be 0!");
         }
-
         return rDAO.save(reimb);
     }
-
     private OutReimbDTO convertToDTO(Reimb r) {
         OutUserDTO outDTO = new OutUserDTO(r.getUser().getUserId(), r.getUser().getFirstName(), r.getUser().getLastName(), r.getUser().getUsername(), r.getUser().getTitle());
 
         return new OutReimbDTO(r.getReimbId(), r.getDescription(), r.getAmount(), r.getStatus(), outDTO);
     }
-
     //This method gets all reimbursements
     public List<OutReimbDTO> getAllReimbs() {
         List<Reimb> allReimbs = rDAO.findAll();
@@ -56,7 +48,6 @@ public class ReimbService {
         }
         return allOutReimbDTOS;
     }
-
     //This method gets all reimbursements by userId
     public List<Reimb> getReimbByUserId(int userId) {
 
@@ -71,23 +62,36 @@ public class ReimbService {
             return rDAO.findByUserUserId(userId);
         }
     }
-
     public List<Reimb> getPendingReimbs () {
-        List<Reimb> allReimb = rDAO.findAll();
-        List<Reimb> pendingReimb = new ArrayList<Reimb>();
-        for (Reimb r : allReimb) {
-            if ("PENDING".equals(r.getStatus())) {
-                pendingReimb.add(r);
+        List<Reimb> allReimbs = rDAO.findAll();
+        List<Reimb> pendingReimbs = new ArrayList<Reimb>();
+        System.out.println(pendingReimbs);
+        for (Reimb r : allReimbs) {
+            if ("Pending".equals(r.getStatus())) {
+                pendingReimbs.add(r);
             }
         }
-        return pendingReimb;
+        return pendingReimbs;
     }
-
-    public Reimb resolveReimb(int reimbId, String status) {
-        Reimb r = rDAO.findById(reimbId).get();
+    public List<Reimb> getPendingReimbById (int userId) {
+        List<Reimb> allReimbs = rDAO.findByUserUserId(userId);
+        List<Reimb> pendingReimbs = new ArrayList<Reimb>();
+        for (Reimb r : allReimbs) {
+            if (userId == 0) {
+                throw new IllegalArgumentException("User can't be found!");
+            }
+            else if ("Pending".equals(r.getStatus())) {
+                pendingReimbs.add(r);
+            } else {
+                throw new IllegalArgumentException("No pending reimbursements found for this user");
+            }
+        }
+        return pendingReimbs;
+    }
+    public Reimb resolveReimb(int reimbsId, String status) {
+        Reimb r = rDAO.findById(reimbsId).get();
         r.setStatus(status);
         return rDAO.save(r);
     }
-
 
 }

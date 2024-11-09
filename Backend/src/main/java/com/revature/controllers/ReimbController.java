@@ -48,8 +48,13 @@ public class ReimbController {
         return ResponseEntity.ok(reimbService.getReimbByUserId(userId));
     }
     @GetMapping("/pending") // GET request to /reimbursements/users/{userId}/pending will come here
-    public ResponseEntity<List<Reimb>> getPendingTickets(){
+    public ResponseEntity<List<Reimb>> getPendingReimbs(){
         return ResponseEntity.ok(reimbService.getPendingReimbs());
+    }
+
+    @GetMapping("/pending/{userId}") // GET request to /reimbursements/users/{userId}/pending will come here
+    public ResponseEntity<List<Reimb>> getPendingReimbById(@PathVariable int userId){
+        return ResponseEntity.ok(reimbService.getPendingReimbById(userId));
     }
 
     @PutMapping("/{reimbId}")

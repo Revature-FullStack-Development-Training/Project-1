@@ -28,7 +28,7 @@ public class AuthService {
             throw new IllegalArgumentException("Invalid credentials");
         }
         //If a user is found, login is successful and we create a session
-        //Remember we're usingthe session from the controller
+        //Remember we're using the session from the controller
         AuthController.session = session;
 
         //Store the user's data in the session

@@ -48,6 +48,18 @@ public class UserService {
         return outUsers;
     }
 
+    public User updateUser(User updatedUser) {
+
+            User userToUpdate = uDAO.findByUsername(updatedUser.getUsername());
+            if (updatedUser == null) {
+                throw new IllegalArgumentException("User can't be found!");
+            }
+            else {
+                userToUpdate.setTitle(updatedUser.getTitle());
+                return uDAO.save(userToUpdate);
+            }
+    }
+
     public void deleteUser(String username) {
 
         User userToDelete = uDAO.findByUsername(username);
