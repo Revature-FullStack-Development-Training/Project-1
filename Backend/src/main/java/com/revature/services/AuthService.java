@@ -33,12 +33,12 @@ public class AuthService {
 
         //Store the user's data in the session
         session.setAttribute("userId", u.getUserId());
-        session.setAttribute("username", u.getUsername());
         session.setAttribute("firstName", u.getFirstName());
         session.setAttribute("lastName", u.getLastName());
+        session.setAttribute("username", u.getUsername());
         session.setAttribute("title", u.getTitle());
 
         //Process the User into an OutUserDTO
-        return new OutUserDTO(u.getUserId(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getTitle());
+        return new OutUserDTO(u.getUserId(), u.getFirstName(), u.getLastName(), u.getUsername(), u.getTitle());
     }
 }

@@ -9,11 +9,11 @@ public class OutUserDTO {
 
     private int userId;
 
-    private String username;
-
     private String firstName;
 
     private String lastName;
+
+    private String username;
 
     private String title;
 
@@ -37,14 +37,6 @@ public class OutUserDTO {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -61,6 +53,15 @@ public class OutUserDTO {
         this.lastName = lastName;
     }
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -73,9 +74,9 @@ public class OutUserDTO {
     public String toString() {
         return "OutUserDTO{" +
                 "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
-                ", first_name='" + firstName + '\'' +
-                ", last_name='" + lastName + '\'' +
                 ", title='" + title + '\'' +
                 '}';
     }
