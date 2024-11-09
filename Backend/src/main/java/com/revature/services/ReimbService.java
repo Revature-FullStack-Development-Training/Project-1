@@ -89,11 +89,11 @@ public class ReimbService {
         return pendingReimbs;
     }
 
-    public Reimb updateDescription(int reimbId, String description) {
-        Reimb r = rDAO.findById(reimbId).get();
-        r.setDescription(description);
-        return rDAO.save(r);
-    }
+//    public Reimb updateDescription(int reimbId, String description) {
+//        Reimb r = rDAO.findById(reimbId).get();
+//        r.setDescription(description);
+//        return rDAO.save(r);
+//    }
     public Reimb resolveReimb(int reimbsId, String status) {
         Reimb r = rDAO.findById(reimbsId).get();
         r.setStatus(status);

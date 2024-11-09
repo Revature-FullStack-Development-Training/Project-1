@@ -38,8 +38,7 @@ public class AuthService {
         session.setAttribute("lastName", u.getLastName());
         session.setAttribute("title", u.getTitle());
 
-
         //Process the User into an OutUserDTO
-        return new OutUserDTO(u.getUserId(), u.getFirstName(), u.getLastName(), u.getUsername(), u.getTitle());
+        return new OutUserDTO(u.getUserId(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getTitle());
     }
 }

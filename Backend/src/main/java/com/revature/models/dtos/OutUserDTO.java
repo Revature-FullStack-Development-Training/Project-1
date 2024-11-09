@@ -20,12 +20,12 @@ public class OutUserDTO {
     public OutUserDTO() {
     }
 
-    public OutUserDTO(int userId, String username, String firstName, String lastName,
+    public OutUserDTO(int userId, String firstName, String lastName, String username,
                       String title) {
         this.userId = userId;
-        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.title = title;
     }
 
