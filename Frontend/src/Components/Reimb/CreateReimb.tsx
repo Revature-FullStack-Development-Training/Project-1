@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { Button, Container, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { store } from "../../globalData/store"
 
 export const CreateReimb:React.FC = () => {
 
@@ -10,15 +11,15 @@ export const CreateReimb:React.FC = () => {
         amount: 0,
         userIdFk: 0
     })
+
     const [descMsg, setDescMsg] = useState<string>("");
     const [amntMsg, setAmntMsg] = useState<string>("");
-    const [userIdFkMsg, setUserIdFkMsg] = useState<string>("");
 
     const navigate = useNavigate()
 
     const storeValues = (input: any) => {
         const name = input.target.name
-        const value = input.target.type === 'number' ? parseFloat(input.target.value) : input.target.value;
+        const value = input.target.value
 
         setReimb((reimb) => ({...reimb, [name]: value}))
     }
@@ -39,13 +40,6 @@ export const CreateReimb:React.FC = () => {
         } else {
           setAmntMsg("");
         }
-
-        if (reimb.userIdFk === 0) {
-            setUserIdFkMsg("User ID FK is required!");
-            isValid = false;
-          } else {
-            setUserIdFkMsg("");
-          }
     
         return isValid;
       };
@@ -60,7 +54,7 @@ export const CreateReimb:React.FC = () => {
        
 
         // POST request - send the new user info to the backend
-        const response = await axios.post("http://localhost:5678/reimbs", reimb)
+        const response = await axios.post(store.baseUrl + "/reimbs", reimb)
         .then(() => {alert("Reimbursement registration is successful!")})
         .catch((error) => {console.log("Reimbursement registration failed! " + error.message)})
     }
@@ -88,16 +82,6 @@ export const CreateReimb:React.FC = () => {
                         onChange = {storeValues}
                     />
                     {amntMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{amntMsg}</li> : ""}
-                </div>
-
-                <div>
-                    <Form.Control
-                        type = "number"
-                        placeholder = "User ID FK"
-                        name = "userIdFk"
-                        onChange = {storeValues}
-                    />
-                    {userIdFkMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{userIdFkMsg}</li> : ""}
                 </div>
 
                 <div>
