@@ -57,7 +57,7 @@ public class ReimbController {
         return ResponseEntity.ok(reimbService.getPendingReimbById(userId));
     }
 
-//    @PutMapping("/{reimbId}/description")
+//    @PatchMapping("/{reimbId}/description")
 //    public ResponseEntity<Reimb> updateDescription(@PathVariable int reimbId, @RequestBody Map<String, String> description) {
 //        Reimb r = reimbService.updateDescription(reimbId, description.get(description));
 //        return ResponseEntity.ok(r);

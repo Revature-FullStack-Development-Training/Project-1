@@ -61,8 +61,6 @@ export const Login:React.FC = () => {
 
                 // Saving the logged in user data locally
                 store.loggedInUser = response.data
-                console.log(response.data)
-                console.log(store.loggedInUser)
 
                 //greet the user
                 alert("Welcome, " + store.loggedInUser.firstName + " " + store.loggedInUser.lastName[0])

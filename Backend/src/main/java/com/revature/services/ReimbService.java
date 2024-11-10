@@ -34,11 +34,13 @@ public class ReimbService {
         }
         return rDAO.save(reimb);
     }
+
     private OutReimbDTO convertToDTO(Reimb r) {
         OutUserDTO outDTO = new OutUserDTO(r.getUser().getUserId(), r.getUser().getFirstName(), r.getUser().getLastName(), r.getUser().getUsername(), r.getUser().getTitle());
 
         return new OutReimbDTO(r.getReimbId(), r.getDescription(), r.getAmount(), r.getStatus(), outDTO);
     }
+
     //This method gets all reimbursements
     public List<OutReimbDTO> getAllReimbs() {
         List<Reimb> allReimbs = rDAO.findAll();

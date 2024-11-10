@@ -38,10 +38,11 @@ public class UserController {
         return ResponseEntity.ok(allUsers);
     }
 
-    @PutMapping("/{username}")
-    public ResponseEntity<User> updateUserTitle(@RequestBody User updatedUser) {
+    @PatchMapping("/{username}")
+    public ResponseEntity<User> updateUserTitle(@PathVariable String username,
+                                                @RequestBody String newTitle) {
 
-        User u = userService.updateUser(updatedUser);
+        User u = userService.updateUserTitle(username, newTitle);
         return ResponseEntity.ok(u);
     }
 

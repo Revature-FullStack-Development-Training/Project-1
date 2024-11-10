@@ -48,16 +48,16 @@ public class UserService {
         return outUsers;
     }
 
-    public User updateUser(User updatedUser) {
+    public User updateUserTitle(String username, String newTitle) {
 
-            User userToUpdate = uDAO.findByUsername(updatedUser.getUsername());
-            if (updatedUser == null) {
-                throw new IllegalArgumentException("User can't be found!");
-            }
-            else {
-                userToUpdate.setTitle(updatedUser.getTitle());
-                return uDAO.save(userToUpdate);
-            }
+        User userToUpdate = uDAO.findByUsername(username);
+        if (userToUpdate == null) {
+            throw new IllegalArgumentException("No user found with username: " +
+                    username);
+        }
+        userToUpdate.setTitle(newTitle);
+        uDAO.save(userToUpdate);
+        return userToUpdate;
     }
 
     public void deleteUser(String username) {
