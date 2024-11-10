@@ -55,11 +55,11 @@ public class ReimbController {
         return ResponseEntity.ok(reimbService.getPendingReimbById(userId));
     }
 
-//    @PatchMapping("/{reimbId}/description")
-//    public ResponseEntity<Reimb> updateDescription(@PathVariable int reimbId, @RequestBody Map<String, String> description) {
-//        Reimb r = reimbService.updateDescription(reimbId, description.get(description));
-//        return ResponseEntity.ok(r);
-//    }
+    @PatchMapping("/{reimbId}/description")
+    public ResponseEntity<Reimb> updateDescription(@PathVariable int reimbId, @RequestBody Map<String, String> description) {
+        Reimb r = reimbService.updateDescription(reimbId, description.get("description"));
+        return ResponseEntity.ok(r);
+    }
 
     @PutMapping("/{reimbId}")
     public ResponseEntity<Reimb> resolveReimb(@PathVariable int reimbId, @RequestBody Map<String, String> status) {
