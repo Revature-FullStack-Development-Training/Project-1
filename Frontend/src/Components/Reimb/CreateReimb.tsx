@@ -9,7 +9,7 @@ export const CreateReimb:React.FC = () => {
     const [reimb, setReimb] = useState({
         description: "",
         amount: 0,
-        userIdFk: 0
+        userId: store.loggedInUser.userId
     })
 
     const [descMsg, setDescMsg] = useState<string>("");
@@ -54,8 +54,10 @@ export const CreateReimb:React.FC = () => {
        
 
         // POST request - send the new user info to the backend
-        const response = await axios.post(store.baseUrl + "/reimbs", reimb)
-        .then(() => {alert("Reimbursement creation is successful!")})
+        const response = await axios.post(store.baseUrl + "/reimbursements", reimb)
+        .then(() => {alert("Reimbursement creation is successful!")
+            navigate("/reimbs")
+        })
         .catch((error) => {alert("Reimbursement creation failed!")})
     }
 
@@ -86,7 +88,7 @@ export const CreateReimb:React.FC = () => {
 
                 <div>
                     <Button className = "btn-success m-1" onClick = {register}> Create </Button>
-                    <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
+                    <Button className = "btn-dark" onClick = {() => navigate("/reimbs")}> Back </Button>
                 </div>
             </div>
         </Container>

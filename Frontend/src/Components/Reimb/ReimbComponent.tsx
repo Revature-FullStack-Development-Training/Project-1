@@ -29,16 +29,15 @@ export const ReimbComponent:React.FC = () => {
     }
 
     return(
-// TODO: navigation bar
         <Container>
 
             <h3>{store.loggedInUser.firstName} {store.loggedInUser.lastName[0]} Reimbursement(s):</h3>
             {/*
-            Sending the entire pets array to get rendered in the PetTable Component
+            Sending the entire reimbs array to get rendered in the ReimbTable Component
             */}
             <ReimbTable incomingReimbs = {reimbs}></ReimbTable>
             <div>
-                
+                <Button className = "btn-success m-1" onClick = {() => navigate("/create/reimb")}> Create Reimbursement </Button>
                 <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
             </div>
             
