@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.aspects.ManagerOnly;
 import com.revature.daos.UserDAO;
 import com.revature.models.dtos.OutUserDTO;
 import com.revature.models.User;
@@ -38,6 +39,7 @@ public class UserController {
         return ResponseEntity.ok(allUsers);
     }
 
+    @ManagerOnly
     @PatchMapping("/{username}")
     public ResponseEntity<User> updateUserTitle(@PathVariable String username,
                                                 @RequestBody String newTitle) {
@@ -46,6 +48,7 @@ public class UserController {
         return ResponseEntity.ok(u);
     }
 
+    @ManagerOnly
     @DeleteMapping("/{username}")
     public ResponseEntity<User> deleteUser(@PathVariable String username) {
 
