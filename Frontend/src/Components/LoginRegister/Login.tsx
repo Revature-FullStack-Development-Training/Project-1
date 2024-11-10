@@ -71,9 +71,9 @@ export const Login:React.FC = () => {
                     users if they're an admin
                 */
                 if (store.loggedInUser.title === "Manager") {
-                    navigate("/employees")
+                    navigate("/manager")
                 } else {
-                    navigate("/reimbs")
+                    navigate("/employee")
                 }
             }
         )
@@ -86,7 +86,7 @@ export const Login:React.FC = () => {
 
     return(
         /*Bootstrap gives us this Container element that does some default padding and centering*/
-        <Container> 
+        <Container className = "my-5 mx-auto"> 
 
             <h1>Welcome to the Employee Reimbursement System</h1>
                 <h3>Please Log In:</h3>

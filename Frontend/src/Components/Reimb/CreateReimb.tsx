@@ -63,33 +63,31 @@ export const CreateReimb:React.FC = () => {
 
     return(
         <Container className = "my-5 mx-auto">
+            <h3>Create a Reimbursement for {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}:</h3>
+
             <div>
-                <h1>Create a Reimbursement</h1>
-    
-                <div>
-                    <Form.Control
-                        type = "text"
-                        placeholder = "Description"
-                        name = "description"
-                        onChange = {storeValues}
-                    />
-                    {descMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{descMsg}</li> : ""}
-                </div>
+                <Form.Control
+                    type = "text"
+                    placeholder = "Description"
+                    name = "description"
+                    onChange = {storeValues}
+                />
+                {descMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{descMsg}</li> : ""}
+            </div>
 
-                <div>
-                    <Form.Control
-                        type = "number"
-                        placeholder = "Amount"
-                        name = "amount"
-                        onChange = {storeValues}
-                    />
-                    {amntMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{amntMsg}</li> : ""}
-                </div>
+            <div>
+                <Form.Control
+                    type = "number"
+                    placeholder = "Amount"
+                    name = "amount"
+                    onChange = {storeValues}
+                />
+                {amntMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{amntMsg}</li> : ""}
+            </div>
 
-                <div>
-                    <Button className = "btn-success m-1" onClick = {register}> Create </Button>
-                    <Button className = "btn-dark" onClick = {() => navigate("/reimbs")}> Back </Button>
-                </div>
+            <div>
+                <Button className = "btn-success m-1" onClick = {register}> Create </Button>
+                <Button className = "btn-dark" onClick = {() => navigate("/reimbs")}> Back </Button>
             </div>
         </Container>
     )

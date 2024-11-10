@@ -1,10 +1,13 @@
 // This component take in the Pets array as props from the PetContainer
 
 import { Button, Container, Table } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 // We'll call this Pets array "pets"
 export const ReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
 
+    const navigate = useNavigate()
+    
     // Hypothetical methods for update and delete pet (which both need pet ID to the pet in question)
     const updateReimb = (id: number) => {
         alert("Reimbursement with ID " + id + " has been updated")
@@ -16,8 +19,7 @@ export const ReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) =
 
 
     return(
-        <Container>
-            <h3></h3>
+        <Container className = "my-5 mx-auto">
             <Table>
                 <thead>
                     <tr>

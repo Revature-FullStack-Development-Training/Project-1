@@ -29,12 +29,12 @@ export const Employees:React.FC = () => {
     }
 
     return(
-        <Container>
+        <Container className = "my-5 mx-auto">
             <h3> Manager {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]} </h3>
             <EmployeeTable incomingEmployees = {employees}></EmployeeTable>
 
             <div>
-                <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
+                <Button className = "btn-dark" onClick = {() => navigate("/manager")}> Back </Button>
             </div>
         </Container>
     )

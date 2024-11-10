@@ -7,7 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css' // We need this for Bootstrap to work
 import { CreateReimb } from './Components/Reimb/CreateReimb';
 import { RegisterEmployee } from './Components/LoginRegister/RegisterEmployee';
 import { Employees } from './Components/Employees/Employees';
-import { ReimbComponent } from './Components/Reimb/ReimbComponent';
+import { EmpReimbComponent } from './Components/Reimb/EmpReimbComponent';
+import { ManagerComponent } from './Components/Managers/ManagerComponent';
+import { ReimbTable } from './Components/Reimb/ReimbTable';
+import { AllReimbs } from './Components/Reimb/AllReimbs';
+import { EmployeeComponent } from './Components/Employees/EmployeeComponent';
 
 
 function App() {
@@ -19,7 +23,10 @@ function App() {
           <Route path = "/register/employee" element = {<RegisterEmployee/>}/>
           <Route path = "/create/reimb" element = {<CreateReimb/>}/>
           <Route path = "/employees" element = {<Employees/>}/>
-          <Route path = "/reimbs" element = {<ReimbComponent/>}/>
+          <Route path = "/employee/reimbs" element = {<EmpReimbComponent/>}/>
+          <Route path = "/manager" element = {<ManagerComponent/>}/>
+          <Route path = "/employee" element = {<EmployeeComponent/>}/>
+          <Route path = "/reimbs" element = {<AllReimbs/>}/>
         </Routes>
       </BrowserRouter>
     </div>

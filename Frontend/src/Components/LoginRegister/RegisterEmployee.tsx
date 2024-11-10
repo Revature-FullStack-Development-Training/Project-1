@@ -85,53 +85,51 @@ export const RegisterEmployee:React.FC = () => {
 
     return(
         <Container className = "my-5 mx-auto">
+            <h3>Register an Employee:</h3>
+
             <div>
-                <h1>Register an Employee</h1>
-    
-                <div>
-                    <Form.Control
-                        type = "text"
-                        placeholder = "Username"
-                        name = "username"
-                        onChange = {storeValues}
-                    />
-                    {unMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{unMsg}</li> : ""}
-                </div>
+                <Form.Control
+                    type = "text"
+                    placeholder = "Username"
+                    name = "username"
+                    onChange = {storeValues}
+                />
+                {unMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{unMsg}</li> : ""}
+            </div>
 
-                <div>
-                    <Form.Control
-                        type = "password"
-                        placeholder = "Password"
-                        name = "password"
-                        onChange = {storeValues}
-                    />
-                    {pwdMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{pwdMsg}</li> : ""}
-                </div>
+            <div>
+                <Form.Control
+                    type = "password"
+                    placeholder = "Password"
+                    name = "password"
+                    onChange = {storeValues}
+                />
+                {pwdMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{pwdMsg}</li> : ""}
+            </div>
 
-                <div>
-                    <Form.Control
-                        type = "text"
-                        placeholder = "First Name"
-                        name = "firstName"
-                        onChange = {storeValues}
-                    />
-                    {fnMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{fnMsg}</li> : ""}
-                </div>
+            <div>
+                <Form.Control
+                    type = "text"
+                    placeholder = "First Name"
+                    name = "firstName"
+                    onChange = {storeValues}
+                />
+                {fnMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{fnMsg}</li> : ""}
+            </div>
 
-                <div>
-                    <Form.Control
-                        type = "text"
-                        placeholder = "Last Name"
-                        name = "lastName"
-                        onChange = {storeValues}
-                    />
-                    {lnMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{lnMsg}</li> : ""}
-                </div>
-    
-                <div>
-                    <Button className = "btn-success m-1" onClick = {register}> Register </Button>
-                    <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
-                </div>
+            <div>
+                <Form.Control
+                    type = "text"
+                    placeholder = "Last Name"
+                    name = "lastName"
+                    onChange = {storeValues}
+                />
+                {lnMsg ? <li style = {{marginLeft: 1 +"%", color: "red"}}>{lnMsg}</li> : ""}
+            </div>
+
+            <div>
+                <Button className = "btn-success m-1" onClick = {register}> Register </Button>
+                <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
             </div>
         </Container>
     )

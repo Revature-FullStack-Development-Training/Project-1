@@ -5,7 +5,7 @@ import { Button, Container } from "react-bootstrap"
 import { ReimbTable } from "./ReimbTable"
 import { useNavigate } from "react-router-dom"
 
-export const ReimbComponent:React.FC = () => {
+export const EmpReimbComponent:React.FC = () => {
 
     const [reimbs, setReimbs] = useState([])
 
@@ -28,17 +28,17 @@ export const ReimbComponent:React.FC = () => {
     }
 
     return(
-        <Container>
+        <Container className = "my-5 mx-auto">
 
-            <h3>{store.loggedInUser.firstName} {store.loggedInUser.lastName[0]} Reimbursement(s):</h3>
-            {/*
-            Sending the entire reimbs array to get rendered in the ReimbTable Component
-            */}
-            <ReimbTable incomingReimbs = {reimbs}></ReimbTable>
-            <div>
-                <Button className = "btn-success m-1" onClick = {() => navigate("/create/reimb")}> Create Reimbursement </Button>
-                <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
+            <h3>Employee {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}</h3>
+            <h5 className = "mt-5">Reimbursement(s):</h5>
+            <div className = "d-flex justify-content-end">
+                <div>
+                    <Button className = "btn-success m-1" onClick = {() => navigate("/create/reimb")}> Create Reimbursement </Button>
+                    <Button className = "btn-dark" onClick = {() => navigate("/employee")}> Back </Button>
+                </div>
             </div>
+            <ReimbTable incomingReimbs = {reimbs}></ReimbTable>
             
         </Container>
 
