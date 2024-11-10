@@ -42,7 +42,8 @@ public class UserService {
         List<OutUserDTO> outUsers = new ArrayList<OutUserDTO>();
 
         for(User u : users) {
-            outUsers.add(new OutUserDTO(u.getUserId(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getTitle()));
+            outUsers.add(new OutUserDTO(u.getUserId(), u.getFirstName(), u.getLastName(),
+                    u.getUsername(), u.getTitle()));
         }
 
         return outUsers;

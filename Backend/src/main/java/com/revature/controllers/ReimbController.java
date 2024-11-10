@@ -27,8 +27,6 @@ public class ReimbController {
             throw new IllegalArgumentException("Amount can't be 0!");
         }
 
-        System.out.println(newReimb);
-
         Reimb r = reimbService.createReimb(newReimb);
         return ResponseEntity.status(201).body(r);
     }

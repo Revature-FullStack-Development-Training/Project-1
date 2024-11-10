@@ -23,7 +23,6 @@ export const ReimbComponent:React.FC = () => {
             (response) => {
                 // Populate the reimbs state object
                 setReimbs(response.data) // data holds the data sent in the response body
-                console.log(response.data)
             })
         .catch((error) => {alert("Fetching reimbs failed!")})
     }
