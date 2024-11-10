@@ -38,7 +38,7 @@ public class ReimbService {
     private OutReimbDTO convertToDTO(Reimb r) {
         OutUserDTO outDTO = new OutUserDTO(r.getUser().getUserId(), r.getUser().getFirstName(), r.getUser().getLastName(), r.getUser().getUsername(), r.getUser().getTitle());
 
-        return new OutReimbDTO(r.getReimbId(), r.getDescription(), r.getAmount(), r.getStatus(), outDTO);
+        return new OutReimbDTO(r.getReimbId(), r.getDescription(), r.getAmount(), r.getUser().getFirstName(), r.getUser().getLastName(), r.getStatus(), outDTO);
     }
 
     //This method gets all reimbursements

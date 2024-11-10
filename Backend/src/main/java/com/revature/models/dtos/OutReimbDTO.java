@@ -4,21 +4,22 @@ public class OutReimbDTO {
 
     private int reimbId;
     private String description;
-
     private double amount;
-
+    private String firstName;
+    private String lastName;
     private String status;
-
     private OutUserDTO OutUserDTO;
 
     public OutReimbDTO() {
     }
 
-    public OutReimbDTO(int reimbId, String description, double amount, String status,
+    public OutReimbDTO(int reimbId, String description, double amount, String firstName, String lastName, String status,
                        OutUserDTO OutUserDTO) {
         this.reimbId = reimbId;
         this.description = description;
         this.amount = amount;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.status = status;
         this.OutUserDTO = OutUserDTO;
     }
@@ -47,6 +48,22 @@ public class OutReimbDTO {
         this.amount = amount;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -65,10 +82,12 @@ public class OutReimbDTO {
 
     @Override
     public String toString() {
-        return "ReimbDTO{" +
+        return "OutReimbDTO{" +
                 "reimbId=" + reimbId +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", status='" + status + '\'' +
                 ", OutUserDTO=" + OutUserDTO +
                 '}';
