@@ -27,6 +27,7 @@ export const EmpReimbComponent:React.FC = () => {
         .catch((error) => {alert("Fetching reimbs failed!")})
     }
 
+
     return(
         <Container className = "my-5 mx-auto">
 
@@ -34,8 +35,8 @@ export const EmpReimbComponent:React.FC = () => {
             <h5 className = "mt-5">Reimbursement(s):</h5>
             <div className = "d-flex justify-content-end">
                 <div>
-                    <Button className = "btn-success m-1" onClick = {() => navigate("/create/reimb")}> Create Reimbursement </Button>
-                    <Button className = "btn-dark" onClick = {() => navigate("/employee")}> Back </Button>
+                    <Button className = "btn-success m-1" onClick = {() => navigate('/create/reimb')}> Create Reimbursement </Button>
+                    <Button className = "btn-dark" onClick = {() => navigate('/employee', {state: {title: 'employee'}})}> Back </Button>
                 </div>
             </div>
             <ReimbTable incomingReimbs = {reimbs}></ReimbTable>

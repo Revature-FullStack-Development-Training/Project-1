@@ -78,10 +78,16 @@ export const RegisterEmployee:React.FC = () => {
             navigate("/")
           }
         )
-        .catch((error) => {alert("Employee registration failed!")})
+        .catch((error) => {
+          console.log(error.response)
+          if (error.response.data === "Username already exists!") {
+            alert("Username already exist!")
+          } else {
+            alert("Employee registration failed!")}
 
 
-    }
+    })}
+  
 
     return(
         <Container className = "my-5 mx-auto">
