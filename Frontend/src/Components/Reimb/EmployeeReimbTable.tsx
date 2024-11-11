@@ -4,7 +4,7 @@ import { Button, Container, Table } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 // We'll call this Pets array "pets"
-export const ReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
+export const EmployeeReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
 
     const navigate = useNavigate()
     

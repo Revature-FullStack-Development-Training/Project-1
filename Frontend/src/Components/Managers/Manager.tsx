@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { store } from "../../globalData/store"
 import { useState } from "react"
 
-export const ManagerComponent:React.FC = () => {
+export const Manager:React.FC = () => {
 
     const [manager, setManager] = useState()
 
@@ -15,7 +15,7 @@ export const ManagerComponent:React.FC = () => {
 
             <div>
                 <Button className = "btn-dark" onClick = {() => navigate("/employees")}> Employee(s) </Button>
-                <Button className = "btn-dark" onClick = {() => navigate("/reimbs")}> Reimbursement(s) </Button>
+                <Button className = "btn-dark" onClick = {() => navigate("/manager/reimbs")}> Reimbursement(s) </Button>
                 <Button className = "btn-dark" onClick = {() => navigate("/")}> Back </Button>
             </div>
         </Container>

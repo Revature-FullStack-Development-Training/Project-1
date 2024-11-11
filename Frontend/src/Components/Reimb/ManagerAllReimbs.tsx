@@ -2,10 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { store } from "../../globalData/store"
 import { Button, Container } from "react-bootstrap"
-import { ReimbTable } from "./ReimbTable"
+import { ManagerReimbTable } from "./ManagerReimbTable"
 import { useNavigate } from "react-router-dom"
 
-export const AllReimbs:React.FC = () => {
+export const ManagerAllReimbs:React.FC = () => {
 
     const [reimbs, setReimbs] = useState([])
     
@@ -28,14 +28,13 @@ export const AllReimbs:React.FC = () => {
 
     return(
         <Container className = "my-5 mx-auto">
-            <h3> Reimbursement(s): </h3>
-            <div className = "d-flex justify-content-end">
-                <div>
-                    <Button className = "btn-success m-1" onClick = {() => navigate("/create/reimb")}> Create Reimbursement </Button>
+            <h3>Manager {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}</h3>
+                <div className = "d-flex justify-content-end">
+                    <Button className = "btn-success m-1" onClick = {() => navigate("/create/manager/reimb")}> Create Reimbursement </Button>
                     <Button className = "btn-dark" onClick = {() => navigate("/manager")}> Back </Button>
                 </div>
-            </div>
-            <ReimbTable incomingReimbs = {reimbs}></ReimbTable>
+            <h5> Reimbursement(s): </h5>
+            <ManagerReimbTable incomingReimbs = {reimbs}></ManagerReimbTable>
         </Container>
     )
 }

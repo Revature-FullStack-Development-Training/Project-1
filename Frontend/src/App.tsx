@@ -4,14 +4,14 @@ import './App.css';
 import { Login } from './Components/LoginRegister/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css' // We need this for Bootstrap to work
-import { CreateReimb } from './Components/Reimb/CreateReimb';
 import { RegisterEmployee } from './Components/LoginRegister/RegisterEmployee';
 import { Employees } from './Components/Employees/Employees';
-import { EmpReimbComponent } from './Components/Reimb/EmpReimbComponent';
-import { ManagerComponent } from './Components/Managers/ManagerComponent';
-import { ReimbTable } from './Components/Reimb/ReimbTable';
-import { AllReimbs } from './Components/Reimb/AllReimbs';
-import { EmployeeComponent } from './Components/Employees/EmployeeComponent';
+import { EmployeeAllReimbs } from './Components/Reimb/EmployeeAllReimbs';
+import { Manager } from './Components/Managers/Manager';
+import { ManagerAllReimbs } from './Components/Reimb/ManagerAllReimbs';
+import { Employee } from './Components/Employees/Employee';
+import { ManagerCreateReimb } from './Components/Reimb/ManagerCreateReimb';
+import { EmployeeCreateReimb } from './Components/Reimb/EmployeeCreateReimb';
 
 
 function App() {
@@ -21,12 +21,13 @@ function App() {
         <Routes>
           <Route path = "" element = {<Login/>}/>
           <Route path = "/register/employee" element = {<RegisterEmployee/>}/>
-          <Route path = "/create/reimb" element = {<CreateReimb/>}/>
+          <Route path = "/create/manager/reimb" element = {<ManagerCreateReimb/>}/>
+          <Route path = "/create/employee/reimb" element = {<EmployeeCreateReimb/>}/>
           <Route path = "/employees" element = {<Employees/>}/>
-          <Route path = "/employee/reimbs" element = {<EmpReimbComponent/>}/>
-          <Route path = "/manager" element = {<ManagerComponent/>}/>
-          <Route path = "/employee" element = {<EmployeeComponent/>}/>
-          <Route path = "/reimbs" element = {<AllReimbs/>}/>
+          <Route path = "/employee/reimbs" element = {<EmployeeAllReimbs/>}/>
+          <Route path = "/manager" element = {<Manager/>}/>
+          <Route path = "/employee" element = {<Employee/>}/>
+          <Route path = "/manager/reimbs" element = {<ManagerAllReimbs/>}/>
         </Routes>
       </BrowserRouter>
     </div>
