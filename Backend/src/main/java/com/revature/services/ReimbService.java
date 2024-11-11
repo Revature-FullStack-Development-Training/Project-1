@@ -64,13 +64,13 @@ public class ReimbService {
             return rDAO.findByUserUserId(userId);
         }
     }
-    public List<Reimb> getPendingReimbs () {
+
+    public List<OutReimbDTO> getPendingReimbs () {
         List<Reimb> allReimbs = rDAO.findAll();
-        List<Reimb> pendingReimbs = new ArrayList<Reimb>();
-        System.out.println(pendingReimbs);
+        List<OutReimbDTO> pendingReimbs = new ArrayList<OutReimbDTO>();
         for (Reimb r : allReimbs) {
             if ("Pending".equals(r.getStatus())) {
-                pendingReimbs.add(r);
+                pendingReimbs.add(convertToDTO(r));
             }
         }
         return pendingReimbs;
@@ -84,8 +84,6 @@ public class ReimbService {
             }
             else if ("Pending".equals(r.getStatus())) {
                 pendingReimbs.add(r);
-            } else {
-                throw new IllegalArgumentException("No pending reimbursements found for this user");
             }
         }
         return pendingReimbs;

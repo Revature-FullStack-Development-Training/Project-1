@@ -7,16 +7,6 @@ import { useNavigate } from "react-router-dom"
 export const EmployeeReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
 
     const navigate = useNavigate()
-    
-    // Hypothetical methods for update and delete pet (which both need pet ID to the pet in question)
-    const updateReimb = (id: number) => {
-        alert("Reimbursement with ID " + id + " has been updated")
-    }
-
-    const deleteReimb = (id: number) => {
-        alert("Reimbursement with ID " + id + " has been deleted (not really)")
-    }
-
 
     return(
         <Container className = "my-5 mx-auto">
@@ -36,10 +26,6 @@ export const EmployeeReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingRe
                             <td> {reimb.description} </td>
                             <td> {reimb.amount} </td>
                             <td> {reimb.status} </td>
-                            <td>
-                                <Button className = "btn-info" onClick = { () => {updateReimb(reimb.reimbId)}}>Update</Button>
-                                <Button className = "btn-danger" onClick = {() => {deleteReimb(reimb.reimbId)}}>Delete</Button>
-                            </td>
                         </tr>
                     ))}
                 </tbody>

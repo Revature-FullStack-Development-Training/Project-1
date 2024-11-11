@@ -63,7 +63,7 @@ export const EmployeeCreateReimb:React.FC = () => {
 
     return(
         <Container className = "my-5 mx-auto">
-            <h3>Create a Reimbursement for Employee {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}:</h3>
+            <h3>Create a Reimbursement for Employee {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}.:</h3>
 
             <div>
                 <Form.Control

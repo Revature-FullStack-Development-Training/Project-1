@@ -12,6 +12,8 @@ import { ManagerAllReimbs } from './Components/Reimb/ManagerAllReimbs';
 import { Employee } from './Components/Employees/Employee';
 import { ManagerCreateReimb } from './Components/Reimb/ManagerCreateReimb';
 import { EmployeeCreateReimb } from './Components/Reimb/EmployeeCreateReimb';
+import { ManagerPendReimbs } from './Components/Reimb/ManagerPendReimb';
+import { EmployeePendReimbs } from './Components/Reimb/EmployeePendReimb';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path = "/manager" element = {<Manager/>}/>
           <Route path = "/employee" element = {<Employee/>}/>
           <Route path = "/manager/reimbs" element = {<ManagerAllReimbs/>}/>
+          <Route path = "/manager/pendreimbs" element = {<ManagerPendReimbs/>}/>
+          <Route path = "/employee/pendreimbs" element = {<EmployeePendReimbs/>}/>
         </Routes>
       </BrowserRouter>
     </div>

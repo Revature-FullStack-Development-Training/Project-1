@@ -46,8 +46,9 @@ public class ReimbController {
         return ResponseEntity.ok(reimbService.getReimbByUserId(userId));
     }
     @GetMapping("/pending") // GET request to /reimbursements/users/{userId}/pending will come here
-    public ResponseEntity<List<Reimb>> getPendingReimbs(){
-        return ResponseEntity.ok(reimbService.getPendingReimbs());
+    public ResponseEntity<List<OutReimbDTO>> getPendingReimbs(){
+        List<OutReimbDTO> pendingReimbs = reimbService.getPendingReimbs();
+        return ResponseEntity.ok(pendingReimbs);
     }
 
     @GetMapping("/pending/{userId}") // GET request to /reimbursements/users/{userId}/pending will come here
@@ -61,9 +62,9 @@ public class ReimbController {
         return ResponseEntity.ok(r);
     }
 
-    @PutMapping("/{reimbId}")
-    public ResponseEntity<Reimb> resolveReimb(@PathVariable int reimbId, @RequestBody Map<String, String> status) {
-        Reimb r = reimbService.resolveReimb(reimbId, status.get("status"));
+    @PatchMapping("/{reimbId}")
+    public ResponseEntity<Reimb> resolveReimb(@PathVariable int reimbId, @RequestBody String status) {
+        Reimb r = reimbService.resolveReimb(reimbId, status);
         return ResponseEntity.ok(r);
     }
     @ExceptionHandler(IllegalArgumentException.class)

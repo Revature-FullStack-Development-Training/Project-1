@@ -30,7 +30,7 @@ export const Employees:React.FC = () => {
 
     return(
         <Container className = "my-5 mx-auto">
-            <h3> Manager {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]} </h3>
+            <h3> Manager {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}. </h3>
             <div className = "d-flex justify-content-end">
                 <Button className = "btn-dark" onClick = {() => navigate("/manager")}> Back </Button>
             </div>
