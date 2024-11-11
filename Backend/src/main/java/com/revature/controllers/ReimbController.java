@@ -66,4 +66,8 @@ public class ReimbController {
         Reimb r = reimbService.resolveReimb(reimbId, status.get("status"));
         return ResponseEntity.ok(r);
     }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException e) {
+        return ResponseEntity.status(400).body(e.getMessage());
+    }
 }

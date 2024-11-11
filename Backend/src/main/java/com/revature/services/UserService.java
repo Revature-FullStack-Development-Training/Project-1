@@ -24,6 +24,9 @@ public class UserService {
         if (newUser.getUsername() == null || newUser.getUsername().isBlank()) {
             throw new IllegalArgumentException("Username can't be empty!");
         }
+        else if (uDAO.findByUsername(newUser.getUsername()) != null) {
+            throw new IllegalArgumentException("Username already exists!");
+        }
         else if (newUser.getPassword() == null || newUser.getPassword().isBlank()) {
             throw new IllegalArgumentException("Password can't be empty!");
         }
