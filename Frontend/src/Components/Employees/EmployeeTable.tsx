@@ -12,7 +12,6 @@ export const EmployeeTable:React.FC<{incomingEmployees: any[]}> = ({incomingEmpl
 
     return(
         <Container className = "my-5 mx-auto">
-            <h5> Employee(s): </h5>
             <Table>
                 <thead>
                     <tr>

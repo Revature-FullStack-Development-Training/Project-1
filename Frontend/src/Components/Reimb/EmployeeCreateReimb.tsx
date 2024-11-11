@@ -4,7 +4,7 @@ import { Button, Container, Form } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { store } from "../../globalData/store"
 
-export const CreateReimb:React.FC = () => {
+export const EmployeeCreateReimb:React.FC = () => {
 
     const [reimb, setReimb] = useState({
         description: "",
@@ -56,14 +56,14 @@ export const CreateReimb:React.FC = () => {
         // POST request - send the new user info to the backend
         const response = await axios.post(store.baseUrl + "/reimbursements", reimb)
         .then(() => {alert("Reimbursement creation is successful!")
-            navigate("/reimbs")
+            navigate("/employee/reimbs")
         })
         .catch((error) => {alert("Reimbursement creation failed!")})
     }
 
     return(
         <Container className = "my-5 mx-auto">
-            <h3>Create a Reimbursement for {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}:</h3>
+            <h3>Create a Reimbursement for Employee {store.loggedInUser.firstName} {store.loggedInUser.lastName[0]}:</h3>
 
             <div>
                 <Form.Control
@@ -87,7 +87,7 @@ export const CreateReimb:React.FC = () => {
 
             <div>
                 <Button className = "btn-success m-1" onClick = {register}> Create </Button>
-                <Button className = "btn-dark" onClick = {() => navigate("/reimbs")}> Back </Button>
+                <Button className = "btn-dark" onClick = {() => navigate("/employee/reimbs")}> Back </Button>
             </div>
         </Container>
     )
