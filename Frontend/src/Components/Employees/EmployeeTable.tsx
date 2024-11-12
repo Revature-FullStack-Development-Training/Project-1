@@ -1,7 +1,6 @@
 import axios from "axios"
 import { Button, Container, Table } from "react-bootstrap"
 import { store } from "../../globalData/store"
-import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 export const EmployeeTable:React.FC<{incomingEmployees: any[]}> = ({incomingEmployees}) => {
@@ -11,8 +10,6 @@ export const EmployeeTable:React.FC<{incomingEmployees: any[]}> = ({incomingEmpl
     useEffect(() => {
         getEmployees()
     }, [])
-
-    const navigate = useNavigate()
     
     const updateEmployeeTitle = async (employee: any) => {
         if (employee.title === "Employee") {

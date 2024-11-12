@@ -2,7 +2,6 @@
 
 import axios from "axios"
 import { Button, Container, Table } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
 import { store } from "../../globalData/store"
 import { useEffect, useState } from "react"
 
@@ -10,8 +9,6 @@ import { useEffect, useState } from "react"
 export const ManagerPendReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
 
     const [childReimbs, setChildReimbs] = useState<any[]>(incomingReimbs)
-
-    const navigate = useNavigate()
 
     useEffect(() => {
         getReimbs()

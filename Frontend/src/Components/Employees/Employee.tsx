@@ -1,11 +1,8 @@
-import { useState } from "react"
 import { Button, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { store } from "../../globalData/store"
 
 export const Employee:React.FC = () => {
-
-    const [employee, setManager] = useState()
 
     const navigate = useNavigate()
 

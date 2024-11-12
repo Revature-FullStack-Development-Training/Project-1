@@ -1,12 +1,9 @@
 // This component take in the Pets array as props from the PetContainer
 
-import { Button, Container, Table } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import { Container, Table } from "react-bootstrap"
 
 // We'll call this Pets array "pets"
 export const ManagerReimbTable:React.FC<{incomingReimbs: any[]}> = ({incomingReimbs}) => {
-
-    const navigate = useNavigate()
     
     return(
         <Container className = "my-5 mx-auto">

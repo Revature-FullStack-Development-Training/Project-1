@@ -29,7 +29,7 @@ export const EmployeePendReimbTable: React.FC<{ incomingReimbs: any[] }> = ({ in
         let isValid = true;
 
         if (!descriptions[reimbId]?.trim()) {
-            setDescMsgs((prev) => ({ ...prev, [reimbId]: "Description is required!" }));
+            setDescMsgs((prev) => ({ ...prev, [reimbId]: "New description is required!" }));
             isValid = false;
         } else {
             setDescMsgs((prev) => ({ ...prev, [reimbId]: "" }));
